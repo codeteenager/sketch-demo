@@ -1,0 +1,65 @@
+{
+  "$schema": "https://raw.githubusercontent.com/BohemianCoding/SketchAPI/develop/docs/sketch-plugin-manifest-schema.json",
+  "name": "sketch-plugin-boilerplate",
+  "version": "0.0.2",
+  "description": "快速创建侧边栏 sketch plugins 开发模版样例",
+  "author": "pfan123",
+  "identifier": "sketch-plugin-boilerplate",
+  "homepage": "https://github.com/o2team/sketch-plugin-boilerplate",
+  "icon": "icon.png",
+  "appcast": "https://pfan123.com/appcast.xml",
+  "commands": [
+    {
+      "name" : "Action Listener",
+      "noshortcut": "true",
+      "identifier": "sketch-plugin-boilerplate.action",
+      "script": "action.js",
+      "handlers": {
+        "actions": {
+          "OpenDocument": "onOpenDocument",
+          "CloseDocument": "onCloseDocument",
+          "SelectionChanged.finish": "onSelectionChanged"
+        }
+      }
+    },
+    {
+      "name": "切换工具栏",
+      "identifier": "sketch-plugin-boilerplate.toggle-side-panel",
+      "script": "sidePanel.js",
+      "shortcut": "ctrl command k",
+      "handlers": {
+        "run": "onToggleSidePanel",
+        "actions": {
+          "OpenDocument": "onOpenDocument",
+          "CloseDocument": "onCloseDocument",
+          "Shutdown": "onShutdown"
+        }
+      }
+    },
+    {
+      "name": "登录",
+      "identifier": "sketch-plugin-boilerplate.login",
+      "script": "./login.js",
+      "handlers": {
+        "run": "onRun",
+        "actions": {
+          "Shutdown": "onShutdown"
+        }
+      }
+    },
+    {
+      "name": "画板上传",
+      "identifier": "sketch-plugin-boilerplate.upload",
+      "script": "script.js",
+      "shortcut": "ctrl command A"
+    }
+  ],
+  "menu": {
+    "title": "sketch-plugin-boilerplate",
+    "items": [
+      "sketch-plugin-boilerplate.toggle-side-panel",
+      "sketch-plugin-boilerplate.upload",
+      "sketch-plugin-boilerplate.login"
+    ]
+  }
+}

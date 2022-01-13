@@ -1,0 +1,37 @@
+{
+  "name": "agree-plugin",
+  "description": "",
+  "version": "0.1.0",
+  "engines": {
+    "sketch": ">=49.0"
+  },
+  "skpm": {
+    "name": "Agree",
+    "manifest": "src/manifest.json",
+    "main": "agree-plugin.sketchplugin",
+    "assets": [
+      "assets/**/*"
+    ],
+    "sketch-assets-file": "sketch-assets/icons.sketch"
+  },
+  "scripts": {
+    "build": "skpm-build",
+    "watch": "skpm-build --watch",
+    "start": "skpm-build --watch --run",
+    "postinstall": "npm run build && skpm-link"
+  },
+  "devDependencies": {
+    "@skpm/builder": "^0.7.0",
+    "@skpm/extract-loader": "^2.0.2",
+    "css-loader": "^3.2.0",
+    "html-loader": "^0.5.5"
+  },
+  "author": "codeteenage <1830702951@qq.com>",
+  "resources": [
+    "resources/**/*.js"
+  ],
+  "dependencies": {
+    "mocha-js-delegate": "^0.2.0",
+    "sketch-module-web-view": "^3.1.4"
+  }
+}
